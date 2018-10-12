@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+ <head>
+   <meta charset="utf-8">
+    <link rel="stylesheet" href="css/hse_game.css">
+ </head>
+ <body>
+
+    <div class="game" id="game">
+
+     <h1> Сколько лет вашей жизни отдано Вышке? </h1>
+     <label><h2>В каком году вы родились?</h2></label>
+     <div id="birth">
+
+<select name="birthyear" id="birthyear"><option value="1988" data-reactid="144">1988</option><option value="1989" data-reactid="145">1989</option><option value="1990" data-reactid="146">1990</option><option value="1991" data-reactid="147">1991</option>
+  <option value="1992" data-reactid="148">1992</option>
+  <option value="1993" data-reactid="149">1993</option><option value="1994" data-reactid="150">1994</option><option value="1995" data-reactid="151">1995</option><option value="1996" data-reactid="152">1996</option><option value="1997" data-reactid="153">1997</option>
+  <option value="1998" data-reactid="154">1998</option>
+
+ </select>
+</div>
+
+<label><h2>В каком году вы поступили в Вышку?</h2></label>
+<div id="hse">
+
+  <select name="hseyear" id="hseyear"><option value="1992" data-reactid="148">1992</option><option value="1993" data-reactid="149">1993</option><option value="1994" data-reactid="150">1994</option><option value="1995" data-reactid="151">1995</option>
+    <option value="1996" data-reactid="152">1996</option><option value="1997" data-reactid="153">1997</option><option value="1998" data-reactid="154">1998</option><option selected="" value="1999" data-reactid="155">1999</option><option value="2000" data-reactid="156">2000</option>
+    <option value="2001" data-reactid="157">2001</option><option value="2002" data-reactid="158">2002</option><option value="2003" data-reactid="159">2003</option><option value="2004" data-reactid="160">2004</option><option value="2005" data-reactid="161">2005</option>
+    <option value="2006" data-reactid="162">2006</option><option value="2007" data-reactid="163">2007</option><option value="2008" data-reactid="164">2008</option><option value="2009" data-reactid="165">2009</option><option value="2010" data-reactid="166">2010</option>
+    <option value="2011" data-reactid="167">2011</option><option value="2012" data-reactid="168">2012</option><option value="2013" data-reactid="169">2013</option><option value="2014" data-reactid="170">2014</option><option value="2015" data-reactid="171">2015</option>
+    <option value="2016" data-reactid="172">2016</option><option value="2017" data-reactid="173">2017</option></select>
+
+  </select>
+</div>
+<br>
+<br>
+<br>
+<button class="button" onclick="calc()" data-reactid="174">Рассчитать</button>
+</div>
+<div id="res" style="display: none;">
+</div>
+<script>
+var birth_year = document.getElementById('birthyear');
+  birth_year.value = "1995";
+
+var hse_year = document.getElementById('hseyear');
+ hse_year.value = "2012";
+
+  function calc() {
+  var cur_date = new Date();
+  var result = Math.round((cur_date.getFullYear() - hse_year.value)/(cur_date.getFullYear() - birth_year.value)*100);
+
+  console.log(result);
+
+  document.getElementById('res').innerHTML = "<h1>Вы провели в Вышке " + result + "% своей жизни</h1>";
+  document.getElementById('game').style['display'] = 'none';
+  document.getElementById('res').style['display'] = 'block';
+};
+
+</script>
+ </body>
+</html>
